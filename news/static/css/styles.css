@@ -1,0 +1,53 @@
+:root {
+    --accent: #38405F;
+    --primary: #094074;
+    --light: #EAE6E5;
+    --dark: #12130F;
+}
+
+.base-container {
+    min-height: calc(100vh - 56px);
+}
+
+
+.my-bg-accent {
+    background: var(--accent);
+}
+
+.my-text-accent {
+    color: var(--accent);
+}
+
+.my-bg-primary {
+    background: var(--primary);
+}
+
+.my-text-primary {
+    color: var(--primary);
+}
+
+.my-bg-light {
+    background: var(--light);
+}
+
+.my-text-light {
+    color: var(--light);
+}
+
+.my-bg-dark {
+    background: var(--dark);
+}
+
+.my-text-dark {
+    color: var(--dark);
+}
+
+#id_title, #id_content {
+    margin-bottom: 12px;
+}
+
+.btn-holder {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}

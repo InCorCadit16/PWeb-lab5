@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Main</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid column justify-content-center">
+        {% if request.path == '/news/my' %}
+            <h1 class="fw-bold">My articles</h1>
+        {% endif %}
+        {% if records %}
+        {% for record in records %}
+            <div class="card my-bg-primary mb-3">
+                <div class="card-body">
+                    <h2 class="card-title my-text-light">{{ record.title }}</h2>
+                    <span class="my-text-light">{{ record.pub_date }}</span>
+                    <p class="card-text my-text-light">{{ record.short_content }}</p>
+                    <div class="text-end">
+                        <a href="{% url 'record' record.id %}">
+                            <button class="btn my-bg-light my-text-dark">View</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+            {% if request.path == '/news/my' %}
+                <h1 class="text-center mt-5">You have no articles yet</h1>
+            {% else %}
+                <h1 class="text-center mt-5">There are no news yet</h1>
+            {% endif %}
+            
+        {% endif %}
+    </div>
+{% endblock content %}

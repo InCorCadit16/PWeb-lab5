@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ title }}</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+        <form action="{% if id %} {% url 'edit-record' id %} {% else %} {% url 'create-record'%} {% endif %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <div class="btn-holder">
+            {% if id %}
+            <a href="{% url 'record' record.id %}"><button class="btn btn-success">Abort</button></a>
+            {% endif %}
+            <input type="submit" class="btn btn-dark" value="{% if id %} Save {% else %} Publish {% endif %}">
+        </div>
+    </form>
+{% endblock content %}
